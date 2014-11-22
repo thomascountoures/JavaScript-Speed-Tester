@@ -25,9 +25,9 @@ SpeedTest.prototype = {
 		}
 		this.average = sumTimes / this.repetitions;
 		message = "Average time for " + this.repetitions + " repetitions: " + '<span class="time">' + this.average + "ms</span>";
-		displayElement.innerHTML = message;
+		displayElement ? displayElement.innerHTML = message : false;
 		return console.log(message);
-	}
+	} //startTest
 }
 
 /* Create test parameters - combine two arrays into a single array
@@ -82,7 +82,7 @@ function jqueryTest(swordList) {
 
 	if(swordList) {
 
-		function Armor() {}
+		function Armor() {}	
 		function Sword(name) {
 			this.name = name;
 		}
@@ -129,6 +129,17 @@ function jqueryTest(swordList) {
 
 }
 
+function classAddingTest() {
+
+	$('.array').addClasses('class1', 'class2', 'class3');
+
+	$('.class2').html("Hello I have a lot of classes!");
+
+	console.log($('.array').hasClass('class2'));
+
+}
+
+
 /* Display Element
 -------------------------------------------------- */
 
@@ -140,10 +151,14 @@ var element = document.getElementById("result");
 
 var testSpeed = new SpeedTest(loopTest, combinedArray, 100000);
 var testJquery = new SpeedTest(jqueryTest, [], 1);
+var testAppend = new SpeedTest(appendArrays, [[1,2,3],[4,5,6]], 10000);
+//var classAdding = new SpeedTest(classAddingTest, [], 1);
 
 /* Run Test
 -------------------------------------------------- */
 
 //testSpeed.startTest(document.getElementById("result"));
-testJquery.startTest(element);
+//testJquery.startTest(element);
+//classAdding.startTest(element);
+testAppend.startTest(element);
 
