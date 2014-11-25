@@ -10,7 +10,7 @@ function appendArrays(params) {
 		} else {
 			var errorMessage = new Error();
 			errorMessage.message = "One of the items in the array must be an array!";
-			console.log(errorMessage.message)
+			console.log(errorMessage.message);
 		}
 	}
 

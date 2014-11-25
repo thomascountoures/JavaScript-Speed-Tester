@@ -107,7 +107,7 @@ function jqueryTest(swordList) {
 
 		swordList.push(sting);
 		swordList.push(biggoron);
-		swordList.push(master);
+		swordList.push(master);	
 		//console.log(swordList);
 		for(var i = 0, paramLength = swordList.length, result = []; i < paramLength; i++) {
 			for(j = 0, knightsLength = knights.length; j < knightsLength; j++) {
